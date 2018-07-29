@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<!-- Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="main.js"></script> 
+  </head>
 
+  <body>
+    <div class="main">
+        <div class="header">
+            Site Name
+        </div>
+
+        <div class="orderForm">
+            <div class="orderFormSection">
+                <h1 class="orderFormHeader">Header 1</h1>
+                <div class="orderFormItemsContainer">
+                    <div class="imageContainer">
+                        <img class="image" src="https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" />
+                        Label - Price
+                        <div class="buyButton button">BUY</div>
+                    </div>
+                    <div class="imageContainer">
+                        <img class="image" src="https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" />
+                        Label - Price
+                        <div class="buyButton button">BUY</div>
+                    </div>
+                    <div class="imageContainer">
+                        <img class="image" src="https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" />
+                        Label - Price
+                        <div class="buyButton button">BUY</div>
+                    </div>
+                    <div class="imageContainer">
+                        <img class="image" src="https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" />
+                        <div class="saleLabel">SALE</div>
+                        Label - Price
+                        <div class="buyButton button">BUY</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="orderFormSection">
+                <h1 class="orderFormHeader">Header 2</h1>
+                <div class="orderFormItemsContainer">
+                    <div class="imageContainer">
+                        <img class="image" src="https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" />
+                        Label - Price
+                        <div class="buyButton button">BUY</div>
+                    </div>
+                    <div class="imageContainer">
+                        <img class="image" src="https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" />
+                        <div class="saleLabel">SALE</div>
+                        Label - Price
+                        <div class="buyButton button">BUY</div>
+                    </div>
+                    <div class="imageContainer">
+                        <img class="image" src="https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" />
+                        Label - Price
+                        <div class="buyButton button">BUY</div>
+                    </div>
+                    <div class="imageContainer">
+                        <img class="image" src="https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" />
+                        Label - Price
+                        <div class="buyButton button">BUY</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Sept 2018<br/>
+            All Rights Reserved
+        </div>
+    </div>
+
+    <!-- This div functions as a modal dialog that pops up when the user clicks the "BUY" button on an item. -->
+    <div class="buyDialog isHidden" id="buyDialog">
+        <div class="buyDialogContent">
+            <h1>Buy this item</h1>
+            <div class="inputRow">
+                Quantity: <input type="number" />
+            </div>
+            <div class="inputRow">
+                Name: <input type="text" />
+            </div>
+            <div class="inputRow">
+                Email: <input type="email" />
+            </div>
+            <div class="submitButton button">
+                SUBMIT
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
