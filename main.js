@@ -6,6 +6,7 @@ window.onload = () => {
 	}
 
 	function submitButtonClicked() {
+		alert("You submitted the form. Yay.");
 		hideDialog();
 	}
 
