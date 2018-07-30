@@ -1,5 +1,10 @@
 body {
 	margin: 0;
+	font-family: sans-serif;
+}
+
+h1, h2 {
+	margin: 0;
 }
 
 .main {
@@ -9,26 +14,55 @@ body {
 }
 
 .header {
-	background: lightblue;
+	background: white;
+	border-bottom: solid 1px #d0d0d0;
 	height: 80px;
 	flex-shrink: 0;
+	box-sizing: border-box;
+	padding: 0 48px;
 }
 
-.orderForm {
+.siteTitle {
+	height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mainContent {
+	background-color: #F3F3F3;
 	flex-shrink: 1;
 	flex-grow: 1;
 	overflow: auto;
-	padding: 0 20px;
 }
 
 .footer {
-	background: lightblue;
+	background: white;
 	height: 40px;
-	flex-shrink: 0;
 	display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    border-top: solid 1px #d0d0d0;
+    box-sizing: border-box;
+}
+
+h2 {
+	margin: 0;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+h3 {
+	color: #757575;
+	margin: 4px 0 16px;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.orderFormSection {
+	margin: 24px 48px;
 }
 
 .buyDialog.isHidden {
@@ -41,15 +75,29 @@ body {
 }
 
 .imageContainer {
+	background: white;
 	display: inline-flex;
 	flex-direction: column;
     align-items: center;
     position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    margin: 0 32px 24px 0;
+}
+
+.imageContainer:hover,
+.imageContainer:focus {
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+	outline: none;
+}
+
+.imageLabel {
+	margin: 16px 0;
 }
 
 .orderFormItemsContainer {
 	display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .button {
@@ -62,8 +110,8 @@ body {
 
 .saleLabel {
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 32px;
+	right: 32px;
 	background-color: rgba(255, 0, 0, 0.75);
 	color: white;
 	border-radius: 4px;
@@ -85,4 +133,34 @@ body {
 .buyDialogContent {
 	background: white;
 	padding: 20px;
+	height: 50%;
+	width: 50%;
+	display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+.dialogCloseButton {
+	height: 16px;
+    width: 16px;
+    display: flex;
+    margin-left: auto;
+    fill: #757575;
+}
+
+.inputRow {
+	text-transform: uppercase;
+    font-size: 12px;
+    color: #757575;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.submitButton {
+	margin: 16px 0;
+	display: inline-flex;
+	flex-shrink: 0;
 }

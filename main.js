@@ -2,19 +2,35 @@ window.onload = () => {
 	const buyDialog = document.getElementById("buyDialog");
 
 	function buyButtonClicked() {
-		buyDialog.classList.remove("isHidden");
+		showDialog();
 	}
 
 	function submitButtonClicked() {
+		hideDialog();
+	}
+
+	function closeDialogButtonClicked() {
+		hideDialog();
+	}
+
+	function hideDialog() {
 		buyDialog.classList.add("isHidden");
 	}
 
+	function showDialog() {
+		buyDialog.classList.remove("isHidden");
+	}
+
 	// Sets up event listeners
-	document.addEventListener("click", (e) => {
+	document.getElementById("orderFormItemsContainer").addEventListener("click", (e) => {
 		if (e.target.classList.contains("buyButton")) {
 			buyButtonClicked();
-		} else if (e.target.classList.contains("submitButton")) {
-			submitButtonClicked();
 		}
+	});
+	document.getElementById("submitButton").addEventListener("click", (e) => {
+		submitButtonClicked();
+	});
+	document.getElementById("dialogCloseButton").addEventListener("click", (e) => {
+		closeDialogButtonClicked();
 	});
 }
