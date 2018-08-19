@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<style>
+			body {
+				margin: 10px 20px;
+			}
+			div:not(.code) {
+				margin: 20px 0;
+			}
+			.code {
+				background-color: #eee;
+				border: 1px solid #999;
+				display: block;
+				padding: 20px;
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Exerercise 1: Headers</h1>
+		<div>
+			Navigate through various headers in the page, including the site title and the catalog section headers. What differences do you notice in how these headers are announced?
+		</div>
+		
+		<div>
+			You'll noticed that catalog section headers and subheaders are identified as header elements, while the site header is not identified specifically as a header. This is not the desired behavior since it's important for a screen reader to be able to distinguish header text from other text in the website. The screen reader identifies header elements when they use native heading markup (e.g. h1, h2, h3) or aria-roles. For example, the following HTML would allow a screen reader to identify a header:
+
+			<div class="code">
+				&lt;div aria-role="heading" aria-level="3"&gt;This is a header&lt;/div&gt;
+				<br/><br/>-- Or equivantly --<br/><br/>
+				&lt;h3&gt;This is a header&lt;/h3&gt;
+			</div>
+		</div>
+
+		<div>
+			When possible, W3C recommends using native markup (h1, h2, etc) rather than using aria-roles (which we'll learn more about later). In practice, aria-roles might be necessary, especially when building accessibility for a legacy website.
+			
+			Try modifying the HTML so that the site title is identified as a header by the screen reader using the "h1" tag.
+		</div>
+
+
+
+		<h1>Exercise 2: Tab indices</h1>
+		<div>
+			The tabindex HTML attribute defines the navigation order for focusable elements and can even make elements focusable. Possible values for the tabindex attribute are:
+			
+			<ul>
+			<li>tabindex="1" (or any number greater than 1): Defines an explicit navigation order.</li>
+			<li>tabindex="0": Does not change the navigation order, but makes an element focusable. For example, elements like "div" or "span" are not focusable by default, so adding '&lt;div tabindex="0"&gt;' would place the element in the navigation flow.</li>
+			<li>tabindex="-1": This makes an element not focusable by using the "tab" key, but only focusable programatically, using javascript for example.</li>
+			</ul>
+		</div>
+		
+		<div>
+			By default, the navigation order for elements on a page is left-to-right and top-to-bottom. A HTML page with focusable elements (like buttons or input fields) typically should not use a value greater than 1 for the tabindex to change the navigation order of elements on the page. For example, it would be very unexpected for focus to jump from an element at the top left corner of the page to an element at the bottom right corner upon pressing tab. Instead, the actual HTML structure of the page may be modified to produce the desired navigation order.
+		</div>
+			
+		<div>
+			Try using the 'tab' key to navigate the demo page. You'll notice that this doesn't seem to work. This is because none elements are focusable by default, nor have a tabindex attribute allowing them to become focusable. To fix this, we can add a tabindex attribute to each "imageContainer" item in the grid. To do this, modify the HTML as follows:
+		
+			<div class="code">
+				&lt;div class="imageContainer" tabindex="0"&gt;
+				    &nbsp;...&nbsp;
+				&lt;/div&gt;
+			</div>
+		</div>
+
+		<div>
+			Now, try using tab to navigate the demo page. Notice that each "imageContainer" item now receives focus. 
+		</div>
+
+
+
+		<h1>Exercise 3: Native elements</h1>
+		<div>
+			You'll notice that the "BUY" buttons are still not focusable. On closer inspection, they also don't have the same properties as typical buttons. For example, the cursor doesn't change when hovering over the "BUY" button. This is because these buttons are actually divs in disguise. Although we can use CSS to fix the cursor issue, the tabindex attribute to allow the buttons to be tabbable, and some aria-role magic to make screen readers recognize these elements as buttons - this is not recommended. As we learned in exercise 1, the preferred solution is to use native elements.
+		</div>
+		
+		<div>
+			Try changing the "submitButton", "dialogCloseButton", and all the "buyButton" elements from "div" to "button". Now, pressing the "tab" key will allow you to navigate through every button on the page.
+		</div>
+
+
+
+		<h1>Exercise 4: Aria-roles</h1>
+		<div>
+			In the first exercise, we introduced the aria-role attribute. There are dozens of different aria-roles, like the one we looked at above for headings. These roles define an element's type for a screen reader. Roles are attached to elements and must not be modified over time. There are aria-roles for menus, autocompletes, lists, dialogs, grids, tooltips, etc.
+		</div>
+		
+		<div>
+			Let's take a closer look at the "list" aria-role.
+		</div>
+
+		<div>
+			TODO!!
+		</div>
+
+		<h1>Exercise 5: Dialogs</h1>
+		<div>
+			Using a screen reader, navigate to the "buy" dialog and tab through the various input fields inside the dialog. You'll notice a few issues with navigating the dialog using the screen reader, such as:
+		
+			<ol>
+				<li>There is no indication or announcement by the screen reader when the dialog opens.</li>
+				<li>Focus is mismanaged. Once the dialog opens, focus is still unexpectedly in the background of the page.</li>
+			</ol>
+		</div>
+		
+		<div>
+			To fix this, the dialog must have correct labels and keyboard focus must be properly handled. Let's start by learning how to add proper labels to the dialog. First, a dialog must have the role="dialog" attribute. For sighted users, the dialog is labelled by its title. For screen readers to also be able to associate the dialog with its title, 
+
+			TODO!!! (follow steps here: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role)
+
+			draft/notes:
+			You'll notice that focus is still unexpectedly in the background of the page, rather than inside this dialog. To fix this, we're going to need to 1) make the dialog focusable and 2) use javascript to draw focus to the dialog, and then restore focus to the main page after the dialog has been closed. 
+
+			Try adding the tabindex attribute to the "buyDialog" to make it focusable using javascript. In javascript, modify the showDialog function so that the dialog receives focus when it is shown.
+
+			If time permits at the end of this workshop, try adding javascript to restore focus to the last focused element on the mainPage once the dialog closes. Hint: You'll have to keep track of the currently focused element when the dialog pops up and make modifications to the hideDialog function to restore focus.
+
+
+			Marking a dialog with this aria role allows assistive technologies to identify and differentiate content inside the dialog from the rest of the page.
+		</div>
+		
+		<div>
+			To learn more about accessibility with dialogs, visit https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role.
+		</div>
+
+		<h1>Exercise N: Color contrast</h1>
+
+
+		Learn more: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques
+	</body>
+</html>

@@ -7,6 +7,25 @@ h1, h2 {
 	margin: 0;
 }
 
+h2 {
+	margin: 0;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+h3 {
+	color: #757575;
+	margin: 4px 0 16px;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+button,
+button:focus {
+	border: none;
+	outline: none;
+}
+
 .main {
 	display: flex;
 	flex-direction: column;
@@ -22,21 +41,6 @@ h1, h2 {
 	padding: 0 48px;
 }
 
-.siteTitle {
-	height: 100%;
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.mainContent {
-	background-color: #F3F3F3;
-	flex-shrink: 1;
-	flex-grow: 1;
-	overflow: auto;
-}
-
 .footer {
 	background: white;
 	height: 40px;
@@ -48,25 +52,23 @@ h1, h2 {
     box-sizing: border-box;
 }
 
-h2 {
-	margin: 0;
-	font-size: 24px;
-	font-weight: normal;
+.siteTitle {
+	height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-h3 {
-	color: #757575;
-	margin: 4px 0 16px;
-	font-size: 16px;
-	font-weight: normal;
+.mainPage {
+	background-color: #F3F3F3;
+	flex-shrink: 1;
+	flex-grow: 1;
+	overflow: auto;
 }
 
 .orderFormSection {
 	margin: 24px 48px;
-}
-
-.buyDialog.isHidden {
-	display: none;
 }
 
 .image {
@@ -87,8 +89,12 @@ h3 {
 
 .imageContainer:hover,
 .imageContainer:focus {
-	box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 	outline: none;
+}
+
+.imageContainer:active {
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.45);
 }
 
 .imageLabel {
@@ -102,10 +108,17 @@ h3 {
 
 .button {
 	border-radius: 8px;
-	margin: 4px;
+	margin-bottom: 4px;
 	padding: 8px 16px;
 	color: white;
 	background-color: blue;
+	font-weight: bold;
+	font-size: 11px;
+	letter-spacing: 2px;
+}
+
+.button:focus {
+	background-color: darkblue;
 }
 
 .saleLabel {
@@ -118,6 +131,8 @@ h3 {
 	padding: 4px 8px;
 }
 
+/* Dialog Styles */
+
 .buyDialog {
 	background: rgba(0, 0, 0, 0.75);
 	position: absolute;
@@ -128,6 +143,10 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.buyDialog.isHidden {
+	display: none;
 }
 
 .buyDialogContent {
@@ -143,11 +162,19 @@ h3 {
 }
 
 .dialogCloseButton {
-	height: 16px;
-    width: 16px;
     display: flex;
     margin-left: auto;
     fill: #757575;
+}
+
+.dialogCloseButton:focus {
+	fill: black;
+}
+
+.dialogCloseButton svg {
+	height: 16px;
+    width: 16px;
+    fill: inherit;
 }
 
 .inputRow {

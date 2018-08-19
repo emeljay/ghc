@@ -21,6 +21,7 @@ window.onload = () => {
 
 	function showDialog() {
 		buyDialog.classList.remove("isHidden");
+		buyDialog.focus();
 	}
 
 	// Sets up event listeners
