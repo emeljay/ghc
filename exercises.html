@@ -24,7 +24,7 @@
 		</div>
 		
 		<div>
-			You'll noticed that catalog section headers and subheaders are identified as header elements, while the site header is not identified specifically as a header. This is not the desired behavior since it's important for a screen reader to be able to distinguish header text from other text in the website. The screen reader identifies header elements when they use native heading markup (e.g. h1, h2, h3) or aria-roles. For example, the following HTML would allow a screen reader to identify a header:
+			You'll notice that the catalog section headers and subheaders are identified as header elements, while the site header is not identified specifically as a header. This is not the desired behavior since it's important for a screen reader to be able to distinguish header text from other text in the website. The screen reader identifies header elements when they use native heading markup (e.g. h1, h2, h3) or aria-roles. For example, the following HTML would allow a screen reader to identify a header:
 
 			<div class="code">
 				&lt;div aria-role="heading" aria-level="3"&gt;This is a header&lt;/div&gt;
@@ -53,11 +53,11 @@
 		</div>
 		
 		<div>
-			By default, the navigation order for elements on a page is left-to-right and top-to-bottom. A HTML page with focusable elements (like buttons or input fields) typically should not use a value greater than 1 for the tabindex to change the navigation order of elements on the page. For example, it would be very unexpected for focus to jump from an element at the top left corner of the page to an element at the bottom right corner upon pressing tab. Instead, the actual HTML structure of the page may be modified to produce the desired navigation order.
+			By default, the navigation order for elements on a page is left-to-right and top-to-bottom. Manually setting tabindex greater than 1 changes the navigation order on the page. This is not recommended especially for HTML pages with focusable elements (like buttons or input fields) as it would be very unexpected for focus to jump from an element at the top left corner of the page to an element at the bottom right corner upon pressing tab. Instead, the actual HTML structure of the page may be modified to produce the desired navigation order. 
 		</div>
 			
 		<div>
-			Try using the 'tab' key to navigate the demo page. You'll notice that this doesn't seem to work. This is because none elements are focusable by default, nor have a tabindex attribute allowing them to become focusable. To fix this, we can add a tabindex attribute to each "imageContainer" item in the grid. To do this, modify the HTML as follows:
+			Try using the 'tab' key to navigate the demo page. You'll notice that this doesn't seem to work. This is because none of the elements are focusable by default, nor do they have a tabindex attribute allowing them to become focusable. To fix this, we can add a tabindex attribute to each "imageContainer" item in the grid. To do this, modify the HTML as follows:
 		
 			<div class="code">
 				&lt;div class="imageContainer" tabindex="0"&gt;
@@ -82,8 +82,25 @@
 		</div>
 
 
+		<h1>Exercise 4: Color contrast</h1>
 
-		<h1>Exercise 4: Aria-roles</h1>
+		<div>
+			Even though we've fixed the functionality of the buttons, they're still not quite fully accessible due to their low color contrast. The gray text (#808080) is difficult to discern from the blue (#0000FF) background. To learn more, go to the <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a> and check that out. Try different color combinations and modify the color or background-color attributes on the buttons to get a better color contrast ratio!
+			<blockquote>
+				WCAG 2.0 level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text.
+
+				Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 point (typically 24px) or larger.
+				<p>
+				source: https://webaim.org/resources/contrastchecker/
+			</blockquote>
+		</div>
+
+		<div>
+			Don't be afraid to push back on designs that use colors that have color contrast ratios that are too low!
+		</div>
+
+
+		<h1>Exercise 5: Aria-roles</h1>
 		<div>
 			In the first exercise, we introduced the aria-role attribute. There are dozens of different aria-roles, like the one we looked at above for headings. These roles define an element's type for a screen reader. Roles are attached to elements and must not be modified over time. There are aria-roles for menus, autocompletes, lists, dialogs, grids, tooltips, etc.
 		</div>
@@ -96,7 +113,7 @@
 			TODO!!
 		</div>
 
-		<h1>Exercise 5: Dialogs</h1>
+		<h1>Exercise 6: Dialogs</h1>
 		<div>
 			Using a screen reader, navigate to the "buy" dialog and tab through the various input fields inside the dialog. You'll notice a few issues with navigating the dialog using the screen reader, such as:
 		
@@ -125,9 +142,6 @@
 		<div>
 			To learn more about accessibility with dialogs, visit https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role.
 		</div>
-
-		<h1>Exercise N: Color contrast</h1>
-
 
 		Learn more: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques
 	</body>
