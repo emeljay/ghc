@@ -46,7 +46,7 @@ class CvoxPageManager {
     this.embed = embed;
     this.injectStubs();
     const scriptTag = document.createElement('script');
-    scriptTag.src = 'chromeandroidvox.js';
+    scriptTag.src = 'screenreader/chromeandroidvox.js';
     document.head.append(scriptTag);
     this.pageBody = document.getElementById('pagebody');
     console.log('pagebody', this.pageBody);
@@ -383,7 +383,7 @@ class CvoxEmbed {
 class CvoxEmbedDomBuilder {
   buildHeadContent() {
     const cssLink = document.createElement('link');
-    cssLink.href = 'embed.css';
+    cssLink.href = 'screenreader/embed.css';
     cssLink.rel = 'stylesheet';
     return cssLink;
 
