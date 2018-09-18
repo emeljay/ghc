@@ -402,8 +402,8 @@ class CvoxEmbedDomBuilder {
     wrapper.innerHTML = `
         <div id="shade" class="shade" aria-hidden="true">
   <span id="cvox-logo">
-    <img height="24" width="24" src="chromevox-no-background.svg" alt="ChromeVox Lite logo" class="enabled">
-    <img height="24" width="24" src="chromevox-no-background-off.svg" alt="ChromeVox Lite disabled logo" class="disabled">
+    <img height="24" width="24" src="screenreader/chromevox-no-background.svg" alt="ChromeVox Lite logo" class="enabled">
+    <img height="24" width="24" src="screenreader/chromevox-no-background-off.svg" alt="ChromeVox Lite disabled logo" class="disabled">
   </span>
   <span id="caption"></span>
   <button id="toggle-cvox"><span id="enable-cvox">Enable ChromeVox Lite</span><span id="disable-cvox">Disable ChromeVox Lite</button>
