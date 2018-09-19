@@ -46,7 +46,7 @@ class CvoxPageManager {
     this.embed = embed;
     this.injectStubs();
     const scriptTag = document.createElement('script');
-    scriptTag.src = 'screenreader/chromeandroidvox.js';
+    scriptTag.src = '../screenreader/chromeandroidvox.js';
     document.head.append(scriptTag);
     this.pageBody = document.getElementById('pagebody');
     console.log('pagebody', this.pageBody);
@@ -383,7 +383,7 @@ class CvoxEmbed {
 class CvoxEmbedDomBuilder {
   buildHeadContent() {
     const cssLink = document.createElement('link');
-    cssLink.href = 'screenreader/embed.css';
+    cssLink.href = '../screenreader/embed.css';
     cssLink.rel = 'stylesheet';
     return cssLink;
 
@@ -402,8 +402,8 @@ class CvoxEmbedDomBuilder {
     wrapper.innerHTML = `
         <div id="shade" class="shade" aria-hidden="true">
   <span id="cvox-logo">
-    <img height="24" width="24" src="screenreader/chromevox-no-background.svg" alt="ChromeVox Lite logo" class="enabled">
-    <img height="24" width="24" src="screenreader/chromevox-no-background-off.svg" alt="ChromeVox Lite disabled logo" class="disabled">
+    <img height="24" width="24" src="../screenreader/chromevox-no-background.svg" alt="ChromeVox Lite logo" class="enabled">
+    <img height="24" width="24" src="../screenreader/chromevox-no-background-off.svg" alt="ChromeVox Lite disabled logo" class="disabled">
   </span>
   <span id="caption"></span>
   <button id="toggle-cvox"><span id="enable-cvox">Enable ChromeVox Lite</span><span id="disable-cvox">Disable ChromeVox Lite</button>
