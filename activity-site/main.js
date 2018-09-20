@@ -24,7 +24,7 @@ window.onload = () => {
 
 	// Sets up event listeners
 	document.getElementById("orderFormItemsContainer").addEventListener("click", (e) => {
-		if (e.target.classList.contains("buyButton")) {
+		if (e.target.classList && e.target.classList.contains("buyButton")) {
 			buyButtonClicked();
 		}
 	});
