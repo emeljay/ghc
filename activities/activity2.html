@@ -74,27 +74,12 @@
 		</div>
 
 
-		<h1>Exercise 4: Color contrast</h1>
-
+		<h1>Exercise 4: Aria-roles</h1>
 		<div>
-			Even though we've fixed the functionality of the buttons, they're still not quite fully accessible due to their low color contrast. The gray text (#808080) is difficult to discern from the blue (#0000FF) background. To learn more, go to the <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a> and check that out. Try different color combinations and modify the color or background-color attributes on the buttons to get a better color contrast ratio!
-			<blockquote>
-				WCAG 2.0 level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text.
-
-				Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 point (typically 24px) or larger.
-				<p>
-				source: https://webaim.org/resources/contrastchecker/
-			</blockquote>
+			In the first exercise, we introduced the aria-role attribute for headings. There are dozens of different aria-roles used to indicate the purpose of an element to a screen reader. There are aria-roles for menus, autocompletes, lists, dialogs, grids, tooltips, <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques">etc</a>.
 		</div>
-
 		<div>
-			Don't be afraid to push back on designs that use colors that have color contrast ratios that are too low!
-		</div>
-
-
-		<h1>Exercise 5: Aria-roles</h1>
-		<div>
-			In the first exercise, we introduced the aria-role attribute. There are dozens of different aria-roles, like the one we looked at above for headings. These roles define an element's type for a screen reader. Roles are attached to elements and must not be modified over time. There are aria-roles for menus, autocompletes, lists, dialogs, grids, tooltips, etc.
+			Roles are attached to elements and must not be modified over time -- so a element with role="heading" shouldn't be modified to become an element with role="button". 
 		</div>
 		
 		<div>
@@ -105,7 +90,7 @@
 			TODO!!
 		</div>
 
-		<h1>Exercise 6: Dialogs</h1>
+		<h1>Exercise 5: Dialogs</h1>
 		<div>
 			Using a screen reader, navigate to the "buy" dialog and tab through the various input fields inside the dialog. You'll notice a few issues with navigating the dialog using the screen reader, such as:
 		
@@ -133,6 +118,25 @@
 		
 		<div>
 			To learn more about accessibility with dialogs, visit https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role.
+		</div>
+
+
+
+		<h1>Exercise 6: Color contrast</h1>
+
+		<div>
+			Even though we've fixed the functionality of the buttons, they're still not quite fully accessible due to their low color contrast. The gray text (#808080) is difficult to discern from the blue (#0000FF) background. To learn more, go to the <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a> and check that out. Try different color combinations and modify the color or background-color attributes on the buttons to get a better color contrast ratio!
+			<blockquote>
+				WCAG 2.0 level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text.
+
+				Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 point (typically 24px) or larger.
+				<p>
+				source: https://webaim.org/resources/contrastchecker/
+			</blockquote>
+		</div>
+
+		<div>
+			Don't be afraid to push back on designs that use colors that have color contrast ratios that are too low!
 		</div>
 
 		Learn more: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques
