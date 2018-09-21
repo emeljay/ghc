@@ -59,19 +59,18 @@
 			Try using the 'tab' key to navigate the demo page. You'll notice that one of the items on the page cannot be focused. Use the information about tab indicies above to fix this issue.
 		</div>
 
-		<div>
-			Now, try using tab to navigate the demo page. Notice that each "imageContainer" item now receives focus. 
-		</div>
-
 
 
 		<h1>Exercise 3: Native elements</h1>
 		<div>
-			You'll notice that the "BUY" buttons are still not focusable. On closer inspection, they also don't have the same properties as typical buttons. For example, the cursor doesn't change when hovering over the "BUY" button. This is because these buttons are actually divs in disguise. Although we can use CSS to fix the cursor issue, the tabindex attribute to allow the buttons to be tabbable, and some aria-role magic to make screen readers recognize these elements as buttons - this is not recommended. As we learned in exercise 1, the preferred solution is to use native elements.
+			Try using the tab key to navigate to the "BUY" buttons. You'll notice that these buttons cannot gain focus. If you hover over one of these buttons with the mouse, you'll also notice that the cursor doesn't change to the "hand" cursor, which is typical of buttons. These buttons do not work as expected because they are actually "div" elements styled to look like buttons in CSS.
+		</div>
+		<div>
+			To fix this, it's possible to use tabindicies to make the buttons focusable and CSS to make the correct cursor appear on hover. However, this is not recommended. As we learned in Exercise 1, the preferred solution is to use native elements -- which have the correct behavior by default.
 		</div>
 		
 		<div>
-			Try changing the "submitButton", "dialogCloseButton", and all the "buyButton" elements from "div" to "button". Now, pressing the "tab" key will allow you to navigate through every button on the page.
+			Try changing the buttons on this website from "div" elements to "button" elements. This includes the submitButton, dialogCloseButton, and all buyButton elements. Test to see if this worked by using the "tab" key to navigate all buttons. 
 		</div>
 
 
