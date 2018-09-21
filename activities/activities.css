@@ -8,9 +8,15 @@ div:not(.code) {
 }
 
 .code {
+	font-family: monospace;
 	background-color: #eee;
 	border: 1px solid #999;
 	display: block;
 	padding: 20px;
 	margin: 10px 0;
+}
+
+.code.inline {
+	display: inline;
+	padding: 0 4px;
 }

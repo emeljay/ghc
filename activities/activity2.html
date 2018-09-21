@@ -6,50 +6,57 @@
 	<body>
 		<h1>Exerercise 1: Headers</h1>
 		<div>
-			Navigate through various headers in the page, including the site title and the catalog section headers. What differences do you notice in how these headers are announced?
+			Use the "heading" at the bottom of the website to navigate all of the headers on the page. Notice that this allows you to navigate most of the headings on the site, except for the site title. 
 		</div>
 		
 		<div>
-			You'll notice that the catalog section headers and subheaders are identified as header elements, while the site header is not identified specifically as a header. This is not the desired behavior since it's important for a screen reader to be able to distinguish header text from other text in the website. The screen reader identifies header elements when they use native heading markup (e.g. h1, h2, h3) or aria-roles. For example, the following HTML would allow a screen reader to identify a header:
+			Text on a page must be identified as a header for a screen reader to recognize it. In the HTML file (index.html), you'll notice that most header text is wrapped in a header tag (h1, h2, h3, etc). Try adding the appropriate HTML markup so that the site title is navigable using the "heading" button. This markup allows users who use a screen reader to distinguish between different types of text (body text vs headers).
+		</div>
+		<div>
+			 Aria roles may be used in place of heading tags to achieve the same effect. For example:
 
 			<div class="code">
-				&lt;div aria-role="heading" aria-level="3"&gt;This is a header&lt;/div&gt;
+				&lt;div aria-role="heading" aria-level="3"&gt;
+				<br/>
+				&nbsp;&nbsp;This is a header
+				<br/>
+				&lt;/div&gt;
 				<br/><br/>-- Or equivantly --<br/><br/>
-				&lt;h3&gt;This is a header&lt;/h3&gt;
+				&lt;h3&gt;
+				<br/>
+				&nbsp;&nbsp;This is also a header
+				<br/>
+				&lt;/h3&gt;
 			</div>
 		</div>
 
 		<div>
 			When possible, W3C recommends using native markup (h1, h2, etc) rather than using aria-roles (which we'll learn more about later). In practice, aria-roles might be necessary, especially when building accessibility for a legacy website.
-			
-			Try modifying the HTML so that the site title is identified as a header by the screen reader using the "h1" tag.
 		</div>
 
 
 
 		<h1>Exercise 2: Tab indices</h1>
 		<div>
-			The tabindex HTML attribute defines the navigation order for focusable elements and can even make elements focusable. Possible values for the tabindex attribute are:
+			The tabindex HTML attribute defines the navigation order for focusable elements. This attribute can also give elements which are normally focusable the ability to gain focus, or remove that ability from normally focusable elements. Elements such as "div" or "span" are not focusable by default (since they are typically text nodes, and need not be interacted with by mouse or keyboard). Specifying a tabindex value for these elements allows them to gain focus when navigating with the keyboard.
+		</div>
+
+		<div>
+			Possible values for the tabindex attribute are:
 			
 			<ul>
-			<li>tabindex="1" (or any number greater than 1): Defines an explicit navigation order.</li>
-			<li>tabindex="0": Does not change the navigation order, but makes an element focusable. For example, elements like "div" or "span" are not focusable by default, so adding '&lt;div tabindex="0"&gt;' would place the element in the navigation flow.</li>
-			<li>tabindex="-1": This makes an element not focusable by using the "tab" key, but only focusable programatically, using javascript for example.</li>
+			<li><div class="code inline">tabindex="1"</div><br/>A positive value for the tabindex defines an explicit navigation order, and makes the element focusable if it is not already.</li><br/>
+			<li><div class="code inline">tabindex="0"</div><br/>A tabindex value of 0 does not change the natural navigation order of an element, but makes it focusable if it is not already.</li><br/>
+			<li><div class="code inline">tabindex="-1"</div><br/>A tabindex value of -1 makes an element unable to gain focus using the "tab" key. However, the element can still receive focus programatically, using javascript.</li><br/>
 			</ul>
 		</div>
 		
 		<div>
-			By default, the navigation order for elements on a page is left-to-right and top-to-bottom. Manually setting tabindex greater than 1 changes the navigation order on the page. This is not recommended especially for HTML pages with focusable elements (like buttons or input fields) as it would be very unexpected for focus to jump from an element at the top left corner of the page to an element at the bottom right corner upon pressing tab. Instead, the actual HTML structure of the page may be modified to produce the desired navigation order. 
+			By default, the navigation order for elements on a page is left-to-right and top-to-bottom. A positive tabindex value allows the natural ordering to be modified. This is not recommended, especially for HTML pages with focusable elements (like buttons or input fields), since it results in unexpected jumps in focus. Imagine if hitting tab caused focus to jump from the start of the page to an element at the very bottom of the page. Instead of manually changing the natural ordering, the actual HTML structure of the page should modified to produce the desired navigation order. 
 		</div>
 			
 		<div>
-			Try using the 'tab' key to navigate the demo page. You'll notice that this doesn't seem to work. This is because none of the elements are focusable by default, nor do they have a tabindex attribute allowing them to become focusable. To fix this, we can add a tabindex attribute to each "imageContainer" item in the grid. To do this, modify the HTML as follows:
-		
-			<div class="code">
-				&lt;div class="imageContainer" tabindex="0"&gt;
-				    &nbsp;...&nbsp;
-				&lt;/div&gt;
-			</div>
+			Try using the 'tab' key to navigate the demo page. You'll notice that one of the items on the page cannot be focused. Use the information about tab indicies above to fix this issue.
 		</div>
 
 		<div>
