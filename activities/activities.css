@@ -3,7 +3,7 @@ body {
 	font-family: sans-serif;
 }
 
-div:not(.code) {
+div {
 	margin: 20px 0;
 }
 
@@ -19,4 +19,18 @@ div:not(.code) {
 .code.inline {
 	display: inline;
 	padding: 0 4px;
+}
+
+.hidden {
+	display: none;
+}
+
+.main-task {
+	font-weight: bold;
+}
+
+.solution {
+	background-color: #f3f2f7;
+    padding: 10px 20px;
+    border: 1px solid #300e82;
 }
