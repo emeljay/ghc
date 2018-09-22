@@ -429,14 +429,14 @@ class CvoxEmbedDomBuilder {
       </span>
       <span>
         Navigate:
-        <button id="previous">Previous</button>
-        <button id="next">Next</button>
-        <button id="click">Click</button>
-        <button id="heading">Heading</button>
-        <button id="top">Top</button>
+        <button id="previous" tabindex="-1">Previous</button>
+        <button id="next" tabindex="-1">Next</button>
+        <button id="click" tabindex="-1">Click</button>
+        <button id="heading" tabindex="-1">Heading</button>
+        <button id="top" tabindex="-1">Top</button>
       </span>
       <span class="volume">
-        Volume: <input id="volume" type="range" min=0 value=100 max=100>
+        Volume: <input id="volume" type="range" min=0 value=100 max=100 tabindex="-1">
       </span>
     </div>
   </div>
