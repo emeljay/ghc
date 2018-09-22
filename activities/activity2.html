@@ -17,8 +17,8 @@
 		    Use the "heading" button at the bottom of the website to navigate all of the headers on the page. Notice that this allows you to navigate most of the headings on the site -- except for the site title! Take a look at the HTML for the headers that do work to see if you can figure out what's wrong with the site title and fix it.
 	    </p>
 		
-		<button onclick="hideNextNeighbor(this)">Solution and explanation for exercise 1</button>
-		<div class="solution hidden" role="presentation">
+		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 1</button>
+		<div class="solution" hidden role="presentation">
 			<p>
 	            Text on a page must be identified as a header for a screen reader to recognize it. In the HTML file (index.html), you'll notice that most header text is wrapped in a header tag (h1, h2, h3, etc). If you wrap the site title in h1 tags, it will become navigable using the "heading" button.
 			</p>
@@ -58,8 +58,8 @@
 		    Try using the 'tab' key to navigate the demo page. You'll notice that one of the items on the page cannot be focused. Compare the untabbable element to other elements on the page and see if you can figure out how to make it tabbable.
 		</p>
 
-		<button onclick="hideNextNeighbor(this)">Solution and explanation for exercise 2</button>
-		<div class="solution hidden">
+		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 2</button>
+		<div class="solution" hidden>
 			<p>
 				Some elements, such as buttons and form elements, are tabbable/focusable by default. If you want other HTML elements to be tabbable, (e.g. "div" or "span" which are more often text elements not interacted with by mouse or keyboard) you can give them a tabindex attribute.
 			</p>
@@ -68,11 +68,16 @@
 			</p>
 			<p>
 				Possible values for the tabindex attribute are:
-				
 				<ul>
-				<li><div class="code inline">tabindex="1"</div><br/>A positive value for the tabindex defines an explicit navigation order, and makes the element focusable if it is not already (not recommended, for reasons described below).</li><br/>
-				<li><div class="code inline">tabindex="0"</div><br/>A tabindex value of 0 does not change the natural navigation order of an element, but makes it focusable if it is not already.</li><br/>
-				<li><div class="code inline">tabindex="-1"</div><br/>A tabindex value of -1 makes an element unable to gain focus using the "tab" key. However, the element can still receive focus programatically, using javascript.</li><br/>
+					<li>
+						<div class="code inline">tabindex="1"</div><br />A positive value for the tabindex defines an explicit navigation order, and makes the element focusable if it is not already (not recommended, for reasons described below).
+					</li>
+					<li>
+						<div class="code inline">tabindex="0"</div><br />A tabindex value of 0 does not change the natural navigation order of an element, but makes it focusable if it is not already.
+					</li>
+					<li>
+						<div class="code inline">tabindex="-1"</div><br />A tabindex value of -1 makes an element unable to gain focus using the "tab" key. However, the element can still receive focus programatically, using javascript.
+					</li>
 				</ul>
 			</p>
 			<p>
@@ -85,8 +90,8 @@
 		<p class="main-task">
 			Try using the tab key to navigate to the "BUY" buttons. You'll notice that these buttons cannot gain focus. If you hover over one of these buttons with the mouse, you'll also notice that the cursor doesn't change to the "hand" cursor that is typical of buttons. Why do you think this might be? (Take a look at the HTML).
 	    </p>
-	    <button onclick="hideNextNeighbor(this)">Solution and explanation for exercise 3</button>
-		<div class="solution hidden">
+	    <button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 3</button>
+		<div class="solution" hidden>
 			<p>
 				These buttons do not work as expected because they are actually "div" elements styled to look like buttons in CSS, not actual buttons. Try changing the buttons on this website from "div" elements to "button" elements. This includes the submitButton, dialogCloseButton, and all buyButton elements. 
 			</p>
@@ -95,60 +100,50 @@
 			</p>
 		</div>
 
-
-		<h2>Exercise 4: Aria-roles</h2>
-		<p>
-			As discussed in the presentation, aria-roles are usually used to add a more specific type of role to an element than HTML can provide, which is vocalized by the screenreader. There are dozens of different aria-roles; some examples are menus, autocompletes, lists, dialogs, grids, tooltips, <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques">etc</a>.
-		</p>
-		<p>
-			Roles are attached to elements and must not be modified over time -- so a element with role="heading" shouldn't be modified to become an element with role="button". 
-		</p>
-		
-		<p class="main-task">
-			TODO: add a clear task here.
-		</p>
-
-		<button onclick="hideNextNeighbor(this)">Solution and explanation for exercise 4</button>
-		<p class="solution hidden">
-			TODO!!
-	    </p>
-
-        <h2>Exercise 5: Buttons revisited</h2>
+        <h2>Exercise 5: ARIA roles</h2>
         <p class="main-task">
-            Many people wonder why they cannot just use aria-roles instead of native HTML elements. Let's try it out! Take one of the buttons you modified in exercise 3, change it back to a div, and add <span div="code">aria-role="button"</span> as an attribute. What do you think the behavior will be?
+            Sometimes, for whatever reason, you can't use the correct native HTML elements. Sometimes you may need to support legacy browsers that will have issues with the new HTML element, or there are other technical limitations. In these cases, you can use an ARIA role to still get the proper screenreader vocalizations. Let's try it out! Take one of the buttons you modified in exercise 3, change it back to a div, and add <span div="code">aria-role="button"</span> as an attribute. How do you think this might be different from a native button element?
         </p>
-        <button onclick="hideNextNeighbor(this)">Solution and explanation for exercise 5</button>
-		<div class="solution hidden">
+        <button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 5</button>
+		<div class="solution" hidden>
 			<p>
 				You'll notice that unlike a div with no aria-role, the screenreader still vocalizes the div as a button. Awesome!
 				However, there are several problems with this button:
 			</p>
 			<ol> 
-				<li> The button is not focusable (needs to be fixed with tabindex) </li>
-				<li> The button does not have the pointer cursor (needs to be fixed with css)</li>
-				<li> The button does not get clicked if the user uses the space key (needs to be fixed by adding a javascript event handler)</li>
+				<li>The button is not focusable (needs to be fixed with tabindex) </li>
+				<li>The button does not have the pointer cursor (needs to be fixed with css)</li>
+				<li>The button does not get clicked if the user uses the space key (needs to be fixed by adding a javascript event handler)</li>
 		    </ol>
 		    <p>
-			    It's possible to fix all of these problems, but it's far better to just use a native button element instead, which already has all the correct behavior by default. Remember that aria labels may change what the screenreader vocalizes, or whether they are navigable using certain screenreader keyboard shortcuts, but they <em>do not affect browser functionality</em>. When you use a role instead of a native element, all the default browser behavior also needs to be replicated (which is sometimes necessary, e.g. for new HTML elements with limited browser support, or sites that need to support legacy browsers).
+			    Remember that aria labels may change what the screenreader vocalizes, or whether they are navigable using certain screenreader keyboard shortcuts, but they <em>do not affect browser functionality</em>. When you use a role instead of a native element, all the default browser behavior also needs to be replicated. Whenever possible, it's far better to just use a native element instead, which already has all the correct behavior by default. 
 			</p>
 	    </div>
 
 		<h2>Exercise 6: Visibility</h2>
-		You have probably noticed that there's an invisible dialog at the bottom of the screen that gets vocalized even though it's not showing. This is problematic, since non-sighted users will assume that the dialog is visible (and it may not function correctly since the developer did not intend for it to be interacted with in this state), and partially-sighted users will be confused when an element that they can hear is not visible on the screen.
+		You have probably noticed that there's an invisible dialog at the bottom of the screen that gets vocalized even though it's not showing. This is problematic, since non-sighted users will assume that the dialog is visible (and it may not function correctly since the developer did not intend for it to be interacted with in this state), and users with some vision will be confused when an element that they can hear is not visible on the screen.
 
 		<p class="main-task">
-	      Try hiding the dialog from screenreaders. There are two different solutions!
+	      Try hiding the dialog from screenreaders. There are several different solutions!
 	    </p>
 
-		<button onclick="hideNextNeighbor(this)">Solution and explanation for exercise 6</button>
-		<div class="solution hidden">
-			<p>Two different solutions:</p>
+		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 6</button>
+		<div class="solution" hidden>
+			<p>Three different solutions:</p>
 			<ol>
 			  <li>
-			  	Hide completely with CSS: For some reason, the developers of this site used opacity:0 to hide the dialog instead of the more standard display:none or visibility:hidden. Both of the latter css attributes will also hide the element from screenreaders. Lowering opacity to 0, positioning it off-screen, or adjusting z-index to hide it behind something else will not hide it from screenreaders.
+			  	<p>
+			  	  Hide completely with CSS: For some reason, the developers of this site used <span class="code inline">z-index:-1</span> to hide the dialog instead of just using <span class="code inline">display:none</span>. Both <span class="code inline">display:none</span> and <span class="code inline">visibility:hidden</span> will hide elements both visually and from screenreaders.
+			    </p>
+			    <p>
+			  	  Lowering opacity to 0, positioning it off-screen, or adjusting z-index to hide it behind something else will not hide it from screenreaders.
+			    </p>
 			  </li>
 			  <li>
-			  	Hide from screenreaders aria-hidden: If for some reason display:none or visibility:hidden cannot be used, the element can also be hidden by adding <span class="code inline">aria-hidden="true"</span> to the div. This attribute will need to be added and removed in Javascript when the dialog is shown or hidden.
+			  	Hidden attribute: The HTML <span class="code inline">hidden</span> attribute will similarly hide things both visually and from screenreaders. However, there are some limitations on its intended use; see the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden">MDN documentation</a> for more details.
+			  </li>
+			  <li>
+			  	Hide from screenreaders with aria-hidden: If for some reason display:none or visibility:hidden cannot be used, the element can also be hidden by adding <span class="code inline">aria-hidden="true"</span> to the div. This attribute will need to be added and removed in Javascript when the dialog is shown or hidden.
 			  </li>
 		    </ol>
 	    </div>
@@ -169,8 +164,8 @@
 			Fix the dialog using a combination of HTML and JavaScript.
 		</p>
 		
-		<button onclick="hideNextNeighbor(this)">Solution and explanation for exercise 6</button>
-		<div class="solution hidden">
+		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 6</button>
+		<div class="solution" hidden>
 			<p>
 				To fix this, the dialog must have correct labels and keyboard focus must be properly handled. Let's start by learning how to add proper labels to the dialog. First, a dialog must have the role="dialog" attribute. For sighted users, the dialog is labelled by its title. For screen readers to also be able to associate the dialog with its title, 
 
@@ -192,22 +187,33 @@
 			To learn more about accessibility with dialogs, visit https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role.
 		</p>
 
-	    <h2>Exercise 7: Color contrast</h2>
+		<h2>Bonus Exercise 8: Advanced ARIA</h2>
+		<p>
+			ARIA comes in very handy when you're implementing a complex widget for which no native markup exists. For instance, if you're implementing a slider or an autocomplete, you need some way of concisely communicating to the user what the widget does and how to interact with it. 
+
+			TODO: fill this in.
+		</p>
+
+	    <h2>Bonus Exercise 9: Color contrast</h2>
 		<p>
 			Even though we've fixed the functionality of the buttons, they're still not quite fully accessible due to their low color contrast. The gray text (#808080) is difficult to discern from the blue (#0000FF) background. To learn more, check out the <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>. Try different color combinations and modify the color or background-color attributes on the buttons to get a better color contrast ratio!
 		</p>
 		<blockquote>
-			WCAG 2.0 level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text.
-
-			Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 point (typically 24px) or larger.
-
-			source: https://webaim.org/resources/contrastchecker/
+			<p>
+			  WCAG 2.0 level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. Level AAA requires a contrast ratio of at least 7:1 for normal text and 4.5:1 for large text.
+		    </p>
+   			<p>
+			  Large text is defined as 14 point (typically 18.66px) and bold or larger, or 18 point (typically 24px) or larger.
+		    </p>
+		    <p>
+			   source: <a href="https://webaim.org/resources/contrastchecker/">https://webaim.org/resources/contrastchecker/</a>
+		    </p>
 		</blockquote>
 		<p>
 			Don't be afraid to push back on designs that use colors that have color contrast ratios that are too low!
 		</p>
 
-		<h2>Learn more!</h2>
+		<h2>Learn more</h2>
 		<p>
 		  If you'd like to learn more about how to create accessible web components, visit the <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques">MDN documentation on ARIA techniques</a>.
 	    </p>
@@ -215,7 +221,9 @@
 		<script>
           function hideNextNeighbor(button) {
           	const neighbor = button.nextElementSibling;
-            neighbor.classList.toggle("hidden");
+          	let isExpanded = button.getAttribute('aria-expanded') === 'true';
+          	neighbor.hidden = isExpanded;
+          	button.setAttribute('aria-expanded', !isExpanded);
           }
          </script>
 

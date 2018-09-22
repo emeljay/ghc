@@ -7,6 +7,10 @@ div {
 	margin: 20px 0;
 }
 
+li {
+	padding: 10px 0;
+}
+
 .code {
 	font-family: monospace;
 	background-color: #eee;
@@ -29,7 +33,7 @@ div {
 	font-weight: bold;
 }
 
-.solution {
+.solution, blockquote {
 	background-color: #f3f2f7;
     padding: 10px 20px;
     border: 1px solid #300e82;
