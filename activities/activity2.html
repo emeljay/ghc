@@ -26,36 +26,12 @@
 				Main takeaway: Using proper HTML markup matters!
 			</p>
 	    </div>
-		<!--
-			This markup allows users who use a screen reader to distinguish between different types of text (body text vs headers).
-		<p>
-			 Aria roles may be used in place of heading tags to achieve the same effect. For example:
-
-			<code class="code">
-				&lt;div aria-role="heading" aria-level="3"&gt;
-				<br/>
-				&nbsp;&nbsp;This is a header
-				<br/>
-				&lt;/div&gt;
-				<br/><br/>-- Or equivalently --<br/><br/>
-				&lt;h3&gt;
-				<br/>
-				&nbsp;&nbsp;This is also a header
-				<br/>
-				&lt;/h3&gt;
-			</code>
-		</div>
-
-		<div>
-			When possible, W3C recommends using native markup (h1, h2, etc) rather than using aria-roles (which we'll learn more about later). In practice, aria-roles might be necessary, especially when building accessibility for a legacy website.
-		</div>
-	-->
 		<h2>Exercise 2: Tabbing</h2>
 		<p>
 		    Screenreader and non-screenreader-users alike often use tab and shift+tab for navigating between interactive elements. It's important to always make sure that this functionality works correctly in addition to navigating by screenreader shortcuts.
 		</p>
 		<p class="main-task">
-		    Try using the 'tab' key to navigate the demo page. You'll notice that one of the items on the page cannot be focused. Compare the untabbable element to other elements on the page and see if you can figure out how to make it tabbable.
+		    Try using the 'tab' key to navigate the demo page. You'll notice that the INSERT ITEM HERE cannot be focused. Compare the untabbable element to other elements on the page and see if you can figure out how to make it tabbable.
 		</p>
 
 		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 2</button>
@@ -100,7 +76,7 @@
 			</p>
 		</div>
 
-        <h2>Exercise 5: ARIA roles</h2>
+        <h2>Exercise 4: ARIA roles</h2>
         <p class="main-task">
             Sometimes, for whatever reason, you can't use the correct native HTML elements. Sometimes you may need to support legacy browsers that will have issues with the new HTML element, or there are other technical limitations. In these cases, you can use an ARIA role to still get the proper screenreader vocalizations. Let's try it out! Take one of the buttons you modified in exercise 3, change it back to a div, and add <span div="code">aria-role="button"</span> as an attribute. How do you think this might be different from a native button element?
         </p>
@@ -120,8 +96,14 @@
 			</p>
 	    </div>
 
-		<h2>Exercise 6: Visibility</h2>
-		You have probably noticed that there's an invisible dialog at the bottom of the screen that gets vocalized even though it's not showing. This is problematic, since non-sighted users will assume that the dialog is visible (and it may not function correctly since the developer did not intend for it to be interacted with in this state), and users with some vision will be confused when an element that they can hear is not visible on the screen.
+		<h2>Exercise 5: Visibility</h2>
+		<p>
+		    You have probably noticed that there's an invisible dialog at the bottom of the screen that gets vocalized even though it's not showing. This is problematic, since non-sighted users will assume that the dialog is visible (and it may not function correctly since the developer did not intend for it to be interacted with in this state), and users with some vision will be confused when an element that they can hear is not visible on the screen.
+	    </p>
+
+		<p>
+		  Hint: Try taking a look at main.css.
+	    </p>
 
 		<p class="main-task">
 	      Try hiding the dialog from screenreaders. There are several different solutions!
@@ -138,9 +120,11 @@
 			    <p>
 			  	  Lowering opacity to 0, positioning it off-screen, or adjusting z-index to hide it behind something else will not hide it from screenreaders.
 			    </p>
+			    <p> IMPORTANT: If you used pure CSS to hide the dialog, make sure you modified the hidden class in main.css instead of adding an inline style, so that the dialog will not be hidden when you click the "Buy" button.
+			    </p>
 			  </li>
 			  <li>
-			  	Hidden attribute: The HTML <span class="code inline">hidden</span> attribute will similarly hide things both visually and from screenreaders. However, there are some limitations on its intended use; see the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden">MDN documentation</a> for more details.
+			  	Hidden attribute: The HTML <span class="code inline">hidden</span> attribute will similarly hide things both visually and from screenreaders. However, there are some limitations on its intended use; see the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden">MDN documentation</a> for more details. Also, this attribute will need to be added and removed in Javascript when the dialog is shown or hidden.
 			  </li>
 			  <li>
 			  	Hide from screenreaders with aria-hidden: If for some reason display:none or visibility:hidden cannot be used, the element can also be hidden by adding <span class="code inline">aria-hidden="true"</span> to the div. This attribute will need to be added and removed in Javascript when the dialog is shown or hidden.
@@ -148,7 +132,7 @@
 		    </ol>
 	    </div>
 	
-		<h2>Exercise 7: Dialogs</h2>
+		<h2>Exercise 6: Dialogs</h2>
 		<p>
 			Using a screen reader, navigate to the "buy" dialog and tab through the various input fields inside the dialog. You'll notice a few issues with navigating the dialog using the screen reader, such as:
 		
@@ -187,14 +171,14 @@
 			To learn more about accessibility with dialogs, visit https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_dialog_role.
 		</p>
 
-		<h2>Bonus Exercise 8: Advanced ARIA</h2>
+		<h2>Bonus Exercise 7: Advanced ARIA</h2>
 		<p>
 			ARIA comes in very handy when you're implementing a complex widget for which no native markup exists. For instance, if you're implementing a slider or an autocomplete, you need some way of concisely communicating to the user what the widget does and how to interact with it. 
 
 			You'll notice that at the bottom of the "BUY" dialog is a tab widget. However, without aria roles and properties, screenreader users may not know how to interact with it. Using the ARIA spec, try adding the proper ARIA markup! Hint: You'll need to use javascript to update the markup when the tab selection changes.
 		</p>
 
-	    <h2>Bonus Exercise 9: Color contrast</h2>
+	    <h2>Bonus Exercise 8: Color contrast</h2>
 		<p>
 			Even though we've fixed the functionality of the buttons, they're still not quite fully accessible due to their low color contrast. The gray text (#808080) is difficult to discern from the blue (#0000FF) background. To learn more, check out the <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>. Try different color combinations and modify the color or background-color attributes on the buttons to get a better color contrast ratio!
 		</p>
