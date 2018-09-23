@@ -39,8 +39,17 @@ div#self-destruct {
     filter: blur(10px);
 }
 
+.isBlurred {
+  -webkit-filter: blur(40px);
+  -moz-filter: blur(40px);
+  -o-filter: blur(40px);
+  -ms-filter: blur(40px);
+  filter: blur(40px);
+}
 
-
+.singleControl {
+  display: inline-block;
+}
 
 .cvoxembed {
   margin: 0;

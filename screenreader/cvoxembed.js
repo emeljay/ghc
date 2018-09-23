@@ -241,6 +241,7 @@ class CvoxEmbed {
     $('top').addEventListener('click', e => this.onTopButtonClicked(e));
     $('heading').addEventListener('click', e => this.onHeadingButtonClicked(e));
     $('click').addEventListener('click', e => this.onClickButtonClicked(e));
+    $('scrim').addEventListener('change', e => this.onScrimToggleClicked(e));
   }
 
   onClickButtonClicked(e) {
@@ -271,6 +272,12 @@ class CvoxEmbed {
   onToggleClicked(e) {
     this.root.hasAttribute('enabled') ? this.disableCvox() : this.enableCvox();
     $('toggle-cvox').blur();
+  }
+
+  onScrimToggleClicked(e) {
+    const pagebody = document.getElementById('pagebody');
+    pagebody.classList.toggle('isBlurred');
+    e.stopPropagation();
   }
 
   insertCvoxEmbed() {
@@ -398,9 +405,8 @@ class CvoxEmbedDomBuilder {
     wrapper.id = 'cvoxembed';
     wrapper.className = 'cvoxembed';
     wrapper.ariaHidden = 'true';
-
     wrapper.innerHTML = `
-        <div id="shade" class="shade" aria-hidden="true">
+<div id="shade" class="shade" aria-hidden="true">
   <span id="cvox-logo">
     <img height="24" width="24" src="../screenreader/chromevox-no-background.svg" alt="ChromeVox Lite logo" class="enabled">
     <img height="24" width="24" src="../screenreader/chromevox-no-background-off.svg" alt="ChromeVox Lite disabled logo" class="disabled">
@@ -411,12 +417,12 @@ class CvoxEmbedDomBuilder {
 <div id="controls" class="controls" aria-hidden="true">
   <div class="controlsContentWrapper">
     <div class="controlsContent">
-      <span>
+      <div class="singleControl">
         Voice:
         <select id="voices">
         </select>
-      </span>
-      <span>
+      </div>
+      <div class="singleControl">
         Speech rate:
         <select id="rates">
           <option value="1.0">Slow</option>
@@ -426,18 +432,25 @@ class CvoxEmbedDomBuilder {
               Advanced (normal for a blind person)
           </option>
         </select>
-      </span>
-      <span>
+      </div>
+      <div class="singleControl">
         Navigate:
         <button id="previous" tabindex="-1">Previous</button>
         <button id="next" tabindex="-1">Next</button>
         <button id="click" tabindex="-1">Click</button>
         <button id="heading" tabindex="-1">Heading</button>
         <button id="top" tabindex="-1">Top</button>
-      </span>
-      <span class="volume">
-        Volume: <input id="volume" type="range" min=0 value=0 max=100 tabindex="-1">
-      </span>
+      </div>
+      <div class="singleControl volume">
+        <label>Volume:</label>
+        <input id="volume" type="range" min=0 value=0 max=100 tabindex="-1">
+      </div>
+      <div class="singleControl">
+        <label>
+           Blur the page:
+        </label>
+        <input type="checkbox" id="scrim" />
+      </div>
     </div>
   </div>
 </div>`;
