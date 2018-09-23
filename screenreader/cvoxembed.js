@@ -194,7 +194,7 @@ class CvoxEmbed {
     speechSynthesis.onvoiceschanged = (() => this.updateVoices);
     // hackily set a timeout so it will wait for speechSynthesis to have voices.
     setTimeout(() => this.updateVoices(), 100);
-    
+    setTimeout(() => this.enableCvox(), 200);
   }
 
   updateSelectedVoiceOnLanguageUpdate(chromeVoxLang) {
@@ -436,7 +436,7 @@ class CvoxEmbedDomBuilder {
         <button id="top" tabindex="-1">Top</button>
       </span>
       <span class="volume">
-        Volume: <input id="volume" type="range" min=0 value=100 max=100 tabindex="-1">
+        Volume: <input id="volume" type="range" min=0 value=0 max=100 tabindex="-1">
       </span>
     </div>
   </div>
