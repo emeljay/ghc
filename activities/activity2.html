@@ -17,7 +17,7 @@
 		    Use the "heading" button at the bottom of the website to navigate all of the headers on the page. Notice that this allows you to navigate most of the headings on the site -- except for the site title! Take a look at the HTML for the headers that do work to see if you can figure out what's wrong with the site title and fix it.
 	    </p>
 		
-		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 1</button>
+		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Explanation for exercise 1</button>
 		<div class="solution" hidden role="presentation">
 			<p>
 	            Text on a page must be identified as a header for a screen reader to recognize it. In the HTML file (index.html), you'll notice that most header text is wrapped in a header tag (h1, h2, h3, etc). If you wrap the site title in h1 tags, it will become navigable using the "heading" button.
@@ -58,7 +58,7 @@
 		    Try using the 'tab' key to navigate the demo page. You'll notice that one of the items on the page cannot be focused. Compare the untabbable element to other elements on the page and see if you can figure out how to make it tabbable.
 		</p>
 
-		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 2</button>
+		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Explanation for exercise 2</button>
 		<div class="solution" hidden>
 			<p>
 				Some elements, such as buttons and form elements, are tabbable/focusable by default. If you want other HTML elements to be tabbable, (e.g. "div" or "span" which are more often text elements not interacted with by mouse or keyboard) you can give them a tabindex attribute.
@@ -90,7 +90,7 @@
 		<p class="main-task">
 			Try using the tab key to navigate to the "BUY" buttons. You'll notice that these buttons cannot gain focus. If you hover over one of these buttons with the mouse, you'll also notice that the cursor doesn't change to the "hand" cursor that is typical of buttons. Why do you think this might be? (Take a look at the HTML).
 	    </p>
-	    <button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 3</button>
+	    <button onclick="hideNextNeighbor(this)" aria-expanded="false">Explanation for exercise 3</button>
 		<div class="solution" hidden>
 			<p>
 				These buttons do not work as expected because they are actually "div" elements styled to look like buttons in CSS, not actual buttons. Try changing the buttons on this website from "div" elements to "button" elements. This includes the submitButton, dialogCloseButton, and all buyButton elements. 
@@ -104,7 +104,7 @@
         <p class="main-task">
             Sometimes, for whatever reason, you can't use the correct native HTML elements. Sometimes you may need to support legacy browsers that will have issues with the new HTML element, or there are other technical limitations. In these cases, you can use an ARIA role to still get the proper screenreader vocalizations. Let's try it out! Take one of the buttons you modified in exercise 3, change it back to a div, and add <span div="code">aria-role="button"</span> as an attribute. How do you think this might be different from a native button element?
         </p>
-        <button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 5</button>
+        <button onclick="hideNextNeighbor(this)" aria-expanded="false">Explanation for exercise 5</button>
 		<div class="solution" hidden>
 			<p>
 				You'll notice that unlike a div with no aria-role, the screenreader still vocalizes the div as a button. Awesome!
@@ -127,7 +127,7 @@
 	      Try hiding the dialog from screenreaders. There are several different solutions!
 	    </p>
 
-		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 6</button>
+		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Explanation for exercise 6</button>
 		<div class="solution" hidden>
 			<p>Three different solutions:</p>
 			<ol>
@@ -164,7 +164,7 @@
 			Fix the dialog using a combination of HTML and JavaScript.
 		</p>
 		
-		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Solution and explanation for exercise 6</button>
+		<button onclick="hideNextNeighbor(this)" aria-expanded="false">Explanation for exercise 6</button>
 		<div class="solution" hidden>
 			<p>
 				To fix this, the dialog must have correct labels and keyboard focus must be properly handled. Let's start by learning how to add proper labels to the dialog. First, a dialog must have the role="dialog" attribute. For sighted users, the dialog is labelled by its title. For screen readers to also be able to associate the dialog with its title, 

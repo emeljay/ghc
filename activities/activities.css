@@ -1,6 +1,8 @@
 body {
 	margin: 10px 20px;
 	font-family: sans-serif;
+	font-size: 16px;
+	line-height: 24px;
 }
 
 div {
@@ -9,6 +11,10 @@ div {
 
 li {
 	padding: 10px 0;
+}
+
+h2 {
+	margin-top: 40px;
 }
 
 .code {
@@ -34,7 +40,16 @@ li {
 }
 
 .solution, blockquote {
-	background-color: #f3f2f7;
+	background-color: #1e90ff14;
     padding: 10px 20px;
-    border: 1px solid #300e82;
+    border: 1px solid dodgerblue;
+}
+
+button {
+	min-height: 30px;
+	padding: 12px;
+	background: dodgerblue;
+	color: white;
+	font-weight: 500;
+    font-size: 16px;
 }
