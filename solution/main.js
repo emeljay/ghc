@@ -13,6 +13,7 @@ window.onload = () => {
 
 	function closeDialogButtonClicked() {
 		hideDialog();
+		mainPage.focus()
 	}
 
 	function hideDialog() {
@@ -24,8 +25,22 @@ window.onload = () => {
 		buyDialog.focus();
 	}
 
+	function isDialogVisible() {
+		return !buyDialog.classList.contains("isHidden");
+	}
+
 	// Sets up event listeners
-	document.getElementById("orderFormItemsContainer").addEventListener("click", (e) => {
+	document.getElementById("mainContent").addEventListener("keyup", (e) => {
+		if (e.keyCode == 13 && e.target.classList && e.target.classList.contains("buyButton")) {
+			buyButtonClicked();
+		}
+	});
+	document.getElementById("toggle-cvox").addEventListener("keyup", (e) => {
+		if (e.keyCode == 9 && isDialogVisible()) {
+			buyDialog.focus();
+		}
+	});
+	document.getElementById("mainContent").addEventListener("click", (e) => {
 		if (e.target.classList && e.target.classList.contains("buyButton")) {
 			buyButtonClicked();
 		}
