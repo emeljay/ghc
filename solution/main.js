@@ -35,7 +35,8 @@ window.onload = () => {
 			buyButtonClicked();
 		}
 	});
-	document.getElementById("toggle-cvox").addEventListener("keyup", (e) => {
+	// This traps focus in the buy dialog. There are many ways to accomplish this, depending on the structure of your page and frameworks you may be using.
+	document.getElementById("returns").addEventListener("keyup", (e) => {
 		if (e.keyCode == 9 && isDialogVisible()) {
 			buyDialog.focus();
 		}
