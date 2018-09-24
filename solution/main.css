@@ -10,6 +10,7 @@
 /* No need to modify the CSS below. */
 body {
   margin: 0;
+  padding-bottom: 100px;
   font-family: sans-serif;
 }
 
@@ -45,17 +46,6 @@ h1, h2 {
   flex-shrink: 1;
   flex-grow: 1;
   overflow: auto;
-}
-
-.footer {
-  background: white;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-top: solid 1px #d0d0d0;
-  box-sizing: border-box;
 }
 
 h2 {
