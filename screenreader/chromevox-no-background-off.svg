@@ -20,9 +20,8 @@
 </g>
 <g id="face_1_">
 	<g id="Layer_5" class="st0">
-		
-			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-148.2785" y1="134.0398" x2="-58.4452" y2="44.5398" gradientTransform="matrix(1 0 0 -1 0 173.4)">
-			<stop  offset="0" style="stop-color:#FBA32F"/>
+	  <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-148.2785" y1="134.0398" x2="-58.4452" y2="44.5398" gradientTransform="matrix(1 0 0 -1 0 173.4)">
+		    <stop  offset="0" style="stop-color:#FBA32F"/>
 			<stop  offset="1" style="stop-color:#F88C29"/>
 		</linearGradient>
 		<path class="st3" d="M-61.5,133h-82.1c-3.9,0-7-3.2-7-7V43.9c0-3.9,3.2-7,7-7h82.2c3.8,0,7,3.2,7,7v82.2
